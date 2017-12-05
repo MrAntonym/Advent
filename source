@@ -1,1 +1,16 @@
 
+def f(a):
+	word = ''
+	instruct = []
+	for b in a:
+		if b == ' ':
+			instruct.append(int(word))
+		else:
+			word += b
+	pointer = 0
+	jumps = 0
+	while pointer < len(instruct):
+		jumps += 1
+		instruct[pointer] += 1
+		pointer += instruct[pointer - 1]
+	return jumps
