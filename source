@@ -2,9 +2,15 @@
 def f(a):
 	word = ''
 	instruct = []
+   positive = True
 	for b in a:
 		if b == ' ':
-			instruct.append(int(word))
+			word = int(word)
+			if positive == False:
+				word *= -1
+			instruct.append(word)
+		elif b == “-“:
+			positive = False
 		else:
 			word += b
 	pointer = 0
